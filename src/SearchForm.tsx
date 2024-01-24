@@ -7,7 +7,7 @@ const SearchForm: React.FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentMovie, setCurrentMovie] = useState(null);
 
-  const openModal = (movie) => {
+  const openModal = (movie: any) => {
     fetch(`http://www.omdbapi.com/?t=${movie.Title}&apikey=abd2c79b`)
       .then(response => response.json())
       .then(data => {
@@ -30,7 +30,7 @@ const SearchForm: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    setTitle(event.target.value);
+    setTitle(event.target as HTMLInputElement).value);
   };
 
   return (
@@ -63,6 +63,7 @@ const SearchForm: React.FC = () => {
   isOpen={modalIsOpen}
   onRequestClose={closeModal}
   contentLabel="Movie Details"
+  ariaHideApp={false}
 >
   <button onClick={closeModal}>X</button>
   {currentMovie && (

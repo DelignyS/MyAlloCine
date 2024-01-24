@@ -9,7 +9,7 @@ interface MovieData {
 
 const MovieList: React.FC = () => {
   const [movies, setMovies] = useState<MovieData[]>([]);
-  const [status, setStatus] = useState<string>('Loading...');
+  
 
   useEffect(() => {
     fetch('http://www.omdbapi.com/?s=star+wars&apikey=abd2c79b')
