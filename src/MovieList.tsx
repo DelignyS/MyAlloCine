@@ -6,7 +6,7 @@ interface MovieData {
   Year: string;
   Poster: string;
 }
-
+const [, setStatus] = useState<string>('');
 const MovieList: React.FC = () => {
   const [movies, setMovies] = useState<MovieData[]>([]);
   

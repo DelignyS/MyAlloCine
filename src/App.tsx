@@ -5,8 +5,9 @@ const App: React.FC = () => {
   return (
     <div>
       <SearchForm />
-      {/* Affichez les résultats de la recherche ici */}
+      {}
     </div>
+    
   );
 };
 
