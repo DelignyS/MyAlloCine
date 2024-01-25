@@ -14,6 +14,10 @@ const SearchForm: React.FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentMovie, setCurrentMovie] = useState<Movie | null>(null);
 
+  let posterUrl = currentMovie ? currentMovie.Poster : '';
+  if (posterUrl.startsWith('http://')) {
+    posterUrl = 'https://' + posterUrl.substring(7);
+  }
   const openModal = (movie: any) => {
     fetch(`https://www.omdbapi.com/?t=${movie.Title}&apikey=abd2c79b`)
       .then((response) => response.json())
@@ -77,7 +81,7 @@ const SearchForm: React.FC = () => {
           {currentMovie && (
             <>
               <h2>{currentMovie.Title}</h2>
-              <img src={currentMovie.Poster} alt={currentMovie.Title} />
+              <img src={posterUrl} alt={currentMovie.Title} />
               <p>{currentMovie.Plot}</p>
               <p>
                 <strong>{currentMovie.Year}</strong>
@@ -89,5 +93,5 @@ const SearchForm: React.FC = () => {
     </div>
   );
 };
-//
+
 export default SearchForm;
