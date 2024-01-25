@@ -12,7 +12,7 @@ const MovieList: React.FC = () => {
   
 
   useEffect(() => {
-    fetch('http://www.omdbapi.com/?s=star+wars&apikey=abd2c79b')
+    fetch('https://www.omdbapi.com/?s=star+wars&apikey=abd2c79b')
       .then(response => response.json())
       .then(data => {
         if (data.Error) {

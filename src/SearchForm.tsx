@@ -15,7 +15,7 @@ const SearchForm: React.FC = () => {
   const [currentMovie, setCurrentMovie] = useState<Movie | null>(null);
 
   const openModal = (movie: any) => {
-    fetch(`http://www.omdbapi.com/?t=${movie.Title}&apikey=abd2c79b`)
+    fetch(`https://www.omdbapi.com/?t=${movie.Title}&apikey=abd2c79b`)
       .then((response) => response.json())
       .then((data) => {
         setCurrentMovie(data);
@@ -28,8 +28,8 @@ const SearchForm: React.FC = () => {
   };
 
   useEffect(() => {
-    if (title !== "") {
-      fetch(`http://www.omdbapi.com/?s=${title}&apikey=abd2c79b`)
+    if (title && title !== "") {
+      fetch(`https://www.omdbapi.com/?s=${title}&apikey=abd2c79b`)
         .then((response) => response.json())
         .then((data) => setResults(data.Search || []))
         .catch((error) => console.error("Error:", error));
