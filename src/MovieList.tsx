@@ -18,7 +18,11 @@ const MovieList: React.FC = () => {
         if (data.Error) {
           setStatus(data.Error);
         } else {
-          setMovies(data.Search);
+          const updatedMovies = data.Search.map((movie: MovieData) => ({
+            ...movie,
+            Poster: movie.Poster.replace('http://', 'https://'),
+          }));
+          setMovies(updatedMovies);
           setStatus('');
         }
       })
