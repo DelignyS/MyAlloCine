@@ -8,10 +8,30 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css"
     />
-    <title>Le Ciné de Jabba</title>
+    <title>Le Cinéma de Jabba</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="./dist/index.js"></script>
+    <div class="grid-container">
+      <h1 class="align-middle align-center grid-x"> Le Cinéma de l'ami Jabba</h1>
+      <div class="grid-x grid-margin-x align-middle align-center">
+        
+        <div class="cell small-6 margin-top-3">
+          <div class="" id="root"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/dist/index.js"></script>
   </body>
 </html>
+
+<!-- 
+Ce fichier est le point d'entrée de l'application "Le Cinéma de Jabba". Il définit la structure
+ de base de la page HTML, y compris le doctype, la langue, le charset, le viewport, l'icône, le titre,
+  et le lien vers le fichier CSS de Foundation pour le style. 
+
+Il contient également une div avec l'id "root", qui est l'endroit où React va attacher l'application. Enfin,
+ il inclut le fichier JavaScript construit par Vite ("./dist/index.js") qui contient le code de l'application React.
+
+Notez que le fichier JavaScript est inclus avec le type "module", ce qui signifie qu'il est chargé en tant que
+ module JavaScript ES6. Cela permet d'utiliser des fonctionnalités comme l'importation et l'exportation de modules.
+-->

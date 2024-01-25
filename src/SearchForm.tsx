@@ -27,9 +27,14 @@ const SearchForm: React.FC = () => {
       })
       .catch((error) => console.error("Error:", error));
   };
+
+  // Fonction pour fermer la fenêtre modale
+
   const closeModal = () => {
     setModalIsOpen(false);
   };
+
+// Utilisation de l'hook useEffect pour effectuer la requête à l'API chaque fois que le titre recherché change
 
   useEffect(() => {
     if (title && title !== "") {
@@ -40,23 +45,27 @@ const SearchForm: React.FC = () => {
     }
   }, [title]);
 
+// Fonction pour gérer la soumission du formulaire de recherche
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     setTitle((event.target as HTMLInputElement).value);
   };
 
+// Le composant retourne un formulaire de recherche, 
+//une liste de résultats de recherche et une fenêtre modale pour afficher les détails d'un film.
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label>
-          Title:
+          Titre de film:
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </label>
-        <input type="submit" value="Search" />
       </form>
       <div className="grid-x grid-margin-x small-up-2 medium-up-3">
         {results.map((movie, index) => (
@@ -93,5 +102,6 @@ const SearchForm: React.FC = () => {
     </div>
   );
 };
+// Le composant SearchForm est exporté pour qu'il puisse être utilisé dans d'autres fichiers
 
 export default SearchForm;
